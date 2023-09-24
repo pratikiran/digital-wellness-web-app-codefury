@@ -3,6 +3,14 @@ const contentController = require('../controllers/contentController');
 const router = express.Router();
 
 router.post('/create', contentController.createContent);
-// Add other routes as needed, e.g., /update, /delete, etc.
+
+// Retrieve specific content by ID
+router.get('/:id', contentController.getContent);
+
+// Update specific content by ID
+router.put('/:id', contentController.updateContent);
+
+// Get specifc content by querying tags, isValid, author, and datePosted
+router.get('/query', contentController.queryContent);
 
 module.exports = router;

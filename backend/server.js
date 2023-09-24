@@ -6,6 +6,7 @@ require('dotenv').config();
 // Import routes
 const userRoutes = require('./routes/userRoutes');
 const contentRoutes = require('./routes/contentRoutes');
+const rewardRoutes = require('./routes/rewardRoutes')
 
 // Import middleware
 const authMiddleware = require('./middleware/auth');
@@ -14,7 +15,6 @@ const app = express();
 
 // Database connection (assuming MongoDB here)
 const uri = process.env.MONGO_URI;
-console.log("URI:",uri);
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB', err));
@@ -35,8 +35,9 @@ app.use((req, res, next) => {
 });
 
 // Use routes
-app.use('/api/users', userRoutes);  // Apply auth middleware to user routes
+app.use('/api/users', userRoutes);
 app.use('/api/content', contentRoutes);
+app.use('/api/rewards', rewardRoutes);
 
 // Handle undefined routes
 app.use((req, res, next) => {

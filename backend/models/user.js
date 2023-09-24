@@ -7,11 +7,29 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    password: {  // Ensure this is hashed before saving
+    password: { 
         type: String,
         required: true
     },
-    // Add other fields as needed, e.g., email, profile picture, etc.
+    fullName: { 
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: [/.+\@.+\..+/, 'Please fill a valid email address']
+    },
+    profilePicture: { 
+        type: String,
+        default: null 
+    },
+    phoneNumber: {
+        type: String,
+        unique: true,
+        match: [/^\d{10}$/, 'Please provide a valid 10-digit phone number']
+    }
 });
 
 userSchema.pre('save', async function(next) {
