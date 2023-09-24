@@ -1,0 +1,29 @@
+.header {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 14px;
+}
